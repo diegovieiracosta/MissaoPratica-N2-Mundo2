@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+
+    <meta charset="utf-8">
+    <title>Receitas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/receitas.css">
+
+  </head>
+  <body onload="preencheCatalogo()">
+ 
+    <div class="container-fluid pnlCatalogo" id="pnlCatalogo">
+    </div>
+  
+    <script>
+      const receitas = [
+        {
+          titulo: "ARROZ DE COUVE-FLOR",
+          imagem: "img/539ef52d0d66c1304a43e9cab8c2c678_arroz-couve-flor-cremoso-receitas-nestle.jpg",
+          preparo: "Deixe a couve-flor pica. Adicine os ingredientes e refogue bem. Adicione sal, tampe a panela e deixe conzinhar.",
+          ingredientes: ["Arroz", "Couve-flor", "Cebola média", "Azeite"]
+        },
+        {
+          titulo: "BOLO DE CAFÉ",
+          imagem: "img/Bolo-de-cafe-soluvel-2-1200x738.png",
+          preparo: "Bate o açucar, as gemas e o café. Adicione farinha e chocolate e mexa bem. Bata as claras e junte à mistura.",
+          ingredientes: ["Farinha de trigo", "Açucar", "Café coado", "Chocolate em pó", "Ovos"]
+        },
+        {
+          titulo: "COXINHA DE BRIGADEIRO",
+          imagem: "img/316789c6-5016-4040-a19b-c8e72c3130d2.webp",
+          preparo: "Junte o leito condensado, chocolate em pó e manteiga. Aqueça no fogo baixa. Envolva os morangos e passe no granulado.",
+          ingredientes: ["Leite condensado", "Chocolate em pó", "Manteiga", "Morango", "Chocolate granulado"]
+        }
+      ];
+ 
+      function getListaIngredientes(ingredientes) {
+        return `<ul>${ingredientes.map(ingrediente => `<li>${ingrediente}</li>`).reduce((acc, cur) => acc + cur, '')}</ul>`;
+      }
+
+      function getCard(receita) {
+        return `
+          <div class="card" style="width: 250px;">
+            <img src="${receita.imagem}" class="card-img-top" alt="Imagem da Receita">
+            <div class="card-body">
+              <h6 class="card-title">${receita.titulo}</h6>
+              <div class="card-text">
+                ${getListaIngredientes(receita.ingredientes)}
+                <hr>
+                ${receita.preparo}
+              </div>
+            </div>
+          </div>`;
+      }
+
+      function preencheCatalogo() {
+        const pnlCatalogo = document.getElementById("pnlCatalogo");
+        const htmlReceitas = receitas.map(receita => getCard(receita)).reduce((acc, cur) => acc + cur, '');
+        pnlCatalogo.innerHTML = htmlReceitas;
+      }
+    </script> 
+
+</body>
+</html>

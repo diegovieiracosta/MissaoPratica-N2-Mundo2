@@ -1,0 +1,26 @@
+#caixa{
+    display: flex; 
+    justify-content: center;  
+}
+
+#arroz, #bolo, #coxinha{
+    width: 350px;
+    margin: 40px;
+    background-color: white;
+}
+
+h2{
+    padding: 10px;
+}
+
+img{
+    width: 150px;
+    padding-top: 20px;
+}    
+
+ul{
+    padding: 40px;
+}
+p{
+    padding: 0;
+}

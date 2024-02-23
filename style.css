@@ -1,0 +1,4 @@
+.pnlCatalogo{
+    display: flex;
+    flex-wrap: wrap;
+}

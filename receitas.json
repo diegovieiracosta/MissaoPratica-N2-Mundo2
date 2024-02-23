@@ -1,0 +1,20 @@
+[
+   {
+        "titulo": "Receita 1",
+        "imagem": "caminho/imagem1.jpg",
+        "preparo": "Instruções de preparo da Receita 1.",
+        "ingredientes": ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"]
+    },
+    {
+        "titulo": "Receita 2",
+        "imagem": "caminho/imagem2.jpg",
+        "preparo": "Instruções de preparo da Receita 2.",
+        "ingredientes": ["Ingrediente A", "Ingrediente B", "Ingrediente C"]
+    },
+    {
+        "titulo": "Receita 3",
+        "imagem": "caminho/imagem3.jpg",
+        "preparo": "Instruções de preparo da Receita 3.",
+        "ingredientes": ["Ingrediente X", "Ingrediente Y", "Ingrediente Z"]
+    }
+]

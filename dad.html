@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de Receitas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6fR/xD7fHAIBlA6Nlrp1a5j2tLmwYaho" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #ffc107; /* bg-warning color */
+    }
+    .pnlCatalogo {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body onload="preencheCatalogo()">
+  <div class="container-fluid pnlCatalogo" id="pnlCatalogo">
+  </div>
+
+  <script>
+    const receitas = [
+      {
+        titulo: "Receita 1",
+        imagem: "caminho_imagem_1.png",
+        preparo: "Modo de preparo da Receita 1",
+        ingredientes: ["Ingrediente 1", "Ingrediente 2", "Ingrediente 3"]
+      },
+      {
+        titulo: "Receita 2",
+        imagem: "caminho_imagem_2.png",
+        preparo: "Modo de preparo da Receita 2",
+        ingredientes: ["Ingrediente A", "Ingrediente B", "Ingrediente C"]
+      },
+      // Adicione mais receitas conforme necessário
+    ];
+
+    // Função para gerar a lista de ingredientes em HTML
+    function getListaIngredientes(ingredientes) {
+      return `<ul>${ingredientes.map(ingrediente => `<li>${ingrediente}</li>`).reduce((acc, cur) => acc + cur, '')}</ul>`;
+    }
+
+    // Função para gerar o painel da receita em HTML
+    function getCard(receita) {
+      return `
+        <div class="card" style="width: 250px;">
+          <img src="${receita.imagem}" class="card-img-top" alt="Imagem da Receita">
+          <div class="card-body">
+            <h5 class="card-title">${receita.titulo}</h5>
+            <div class="card-text">
+              ${getListaIngredientes(receita.ingredientes)}
+              <hr>
+              ${receita.preparo}
+            </div>
+          </div>
+        </div>`;
+    }
+
+    // Função para preencher o catálogo com os painéis de receita
+    function preencheCatalogo() {
+      const pnlCatalogo = document.getElementById("pnlCatalogo");
+      const htmlReceitas = receitas.map(receita => getCard(receita)).reduce((acc, cur) => acc + cur, '');
+      pnlCatalogo.innerHTML = htmlReceitas;
+    }
+  </script>
+
+  <!-- Adicione aqui as referências ao Bootstrap JS, se necessário -->
+</body>
+</html>
